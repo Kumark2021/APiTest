@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class HTTPRequests {
 	int id;
-	@Test
+	@Test(priority=1)
 	
 	void getUsers()
 	{
@@ -19,13 +19,13 @@ public class HTTPRequests {
 			.get("https://reqres.in/api/users?page=2")
 		
 		.then()
-			.statusCode(200);
-			.log.all();
+			.statusCode(200)
+			.log().all();
 		  	
 			
 		
 	}
-	@Test(priority=1)
+	@Test(priority=2)
 	
 	void createUser()
 	{ 
@@ -51,7 +51,7 @@ public class HTTPRequests {
 		
 	}
 	
-	@Test(priority=2)
+	@Test(priority=3)
 	
 	void updateUser()
 	{
@@ -73,11 +73,12 @@ public class HTTPRequests {
 		 
 		 .then()
 		 .statusCode(200)
-		 .log.all();                 
+		 .log().all()      ;
+	  
 		
 		
 	}
-@Test
+@Test(priority=4)
 	
 	void deleteUsers()
 	{
@@ -87,8 +88,8 @@ public class HTTPRequests {
 			.delete("https://reqres.in/api/users"+id)
 		
 		.then()
-			.statusCode(204);
-			//.log.all();
+			.statusCode(204)
+			.log().all();
 		  	
 			
 		
