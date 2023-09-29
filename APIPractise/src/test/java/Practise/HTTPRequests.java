@@ -77,6 +77,22 @@ public class HTTPRequests {
 		
 		
 	}
+@Test
+	
+	void deleteUsers()
+	{
+		given()
+		
+		.when()
+			.delete("https://reqres.in/api/users"+id)
+		
+		.then()
+			.statusCode(204);
+			//.log.all();
+		  	
+			
+		
+	}
 	
 
 }
